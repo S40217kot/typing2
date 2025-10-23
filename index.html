@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>ステージ選択 | typing4</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>typing4</h1>
+  </header>
+
+  <main class="container">
+    <section class="stage-list">
+      <h2>ステージを選んでね</h2>
+      <div class="stages">
+        <button class="stage-btn" onclick="startGame('words')">
+          <span class="title">ステージ1：単語</span>
+          <span class="desc">短い英単語をテンポよく</span>
+        </button>
+        <button class="stage-btn" onclick="startGame('phrases')">
+          <span class="title">ステージ2：文章</span>
+          <span class="desc">やや長めのフレーズで精度重視</span>
+        </button>
+        <button class="stage-btn" onclick="startGame('paragraph')">
+          <span class="title">ステージ3：長文</span>
+          <span class="desc">落ち着いて、一定リズムで</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function startGame(stageId) {
+      sessionStorage.setItem("selectedStage", stageId);
+      window.location.href = "game.html";
+    }
+  </script>
+</body>
+</html>

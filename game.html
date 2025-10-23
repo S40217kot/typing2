@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>プレイ | typing4</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>typing4</h1>
+    <div class="controls">
+      <label class="select-wrap">
+        難易度
+        <select id="difficulty">
+          <option value="easy">やさしい</option>
+          <option value="normal" selected>ふつう</option>
+          <option value="hard">むずかしい</option>
+        </select>
+      </label>
+      <button id="btnStart" class="primary">スタート</button>
+      <button id="btnReset" class="ghost">リセット</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hud">
+      <div class="stat"><span class="label">ステージ</span><span id="stageName">-</span></div>
+      <div class="stat"><span class="label">進行度</span><span id="progress">0 / 0</span></div>
+      <div class="stat"><span class="label">スコア</span><span id="score">0</span></div>
+      <div class="stat"><span class="label">精度</span><span id="accuracy">0%</span></div>
+      <div class="stat"><span class="label">WPM</span><span id="wpm">0</span></div>
+      <div class="stat"><span class="label">ミス</span><span id="misses">0</span></div>
+      <div class="stat"><span class="label">コンボ</span><span id="combo">0</span></div>
+      <div class="stat"><span class="label">タイム</span><span id="time">00:00</span></div>
+    </section>
+
+    <section class="game">
+      <div class="prompt">
+        <div id="promptBuffer" aria-live="polite"></div>
+      </div>
+
+      <div class="input-wrap">
+        <input
+          id="typingInput"
+          type="text"
+          inputmode="latin"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          placeholder="ここにタイプ"
+          disabled
+        />
+        <button id="btnSkip" class="ghost">スキップ</button>
+      </div>
+
+      <div class="progressbar" aria-hidden="true">
+        <div id="progressBarFill"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>結果発表 | typing4</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>typing4</h1>
+  </header>
+
+  <main class="container">
+    <section class="result">
+      <ul class="summary">
+        <li><strong>ステージ:</strong> <span id="resultStage">-</span></li>
+        <li><strong>クリア数:</strong> <span id="resultProgress">0 / 0</span></li>
+        <li><strong>スコア:</strong> <span id="resultScore">0</span></li>
+        <li><strong>精度:</strong> <span id="resultAccuracy">0%</span></li>
+        <li><strong>平均WPM:</strong> <span id="resultWpm">0</span></li>
+        <li><strong>ミス:</strong> <span id="resultMisses">0</span></li>
+        <li><strong>最大コンボ:</strong> <span id="resultMaxCombo">0</span></li>
+        <li><strong>残りタイム:</strong> <span id="resultTimeLeft">00:00</span></li>
+      </ul>
+      <div class="result-actions">
+        <button onclick="retry()" class="primary">もう一度</button>
+        <button onclick="backToStage()" class="ghost">ステージに戻る</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const result = JSON.parse(sessionStorage.getItem("gameResult"));
+    if (!result) {
+      window.location.href = "index.html";
+    }
+
+    document.getElementById("resultStage").textContent = result.stage;
+    document.getElementById("resultProgress").textContent = result.progress;
+    document.getElementById("resultScore").textContent = result.score;
+    document.getElementById("resultAccuracy").textContent = result.accuracy + "%";
+    document.getElementById("resultWpm").textContent = result.wpm;
+    document.getElementById("resultMisses").textContent = result.misses;
+    document.getElementById("resultMaxCombo").textContent = result.maxCombo;
+    document.getElementById("resultTimeLeft").textContent = result.timeLeft;
+
+    function retry() {
+      window.location.href = "game.html";
+    }
+
+    function backToStage() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
